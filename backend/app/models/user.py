@@ -27,6 +27,6 @@ class User(Base):
     )
     
     conversations=relationship(
-        "Conveersation",
+        "Conversation",
         back_populates="user"
     )
