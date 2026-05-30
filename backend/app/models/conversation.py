@@ -2,7 +2,7 @@ from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import ForeignKey
-
+from sqlalchemy.orm import relationship
 from app.db.base import Base
 
 
@@ -25,3 +25,14 @@ class Conversation(Base):
         Integer,
         ForeignKey("users.id")
     )
+    
+    user = relationship(
+    "User",
+    back_populates="conversations"
+    )
+
+    messages = relationship(
+    "Message",
+    back_populates="conversation"
+    )
+    

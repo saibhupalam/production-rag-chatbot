@@ -1,7 +1,7 @@
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
-
+from sqlalchemy.orm import relationship
 from app.db.base import Base
 
 
@@ -24,4 +24,9 @@ class User(Base):
         String,
         unique=True,
         nullable=False
+    )
+    
+    conversations=relationship(
+        "Conveersation",
+        back_populates="user"
     )

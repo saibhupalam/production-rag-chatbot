@@ -3,6 +3,7 @@ from sqlalchemy import Integer
 from sqlalchemy import Text
 from sqlalchemy import String
 from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
 from app.db.base import Base
 
@@ -30,4 +31,9 @@ class Message(Base):
     conversation_id = Column(
         Integer,
         ForeignKey("conversations.id")
+    )
+    
+    conversation = relationship(
+    "Conversation",
+    back_populates="messages"
     )
