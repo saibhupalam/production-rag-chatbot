@@ -36,3 +36,12 @@ class Conversation(Base):
     back_populates="conversation"
     )
     
+    document_id = Column(
+    Integer,
+    ForeignKey("documents.id")
+    )
+
+    document = relationship(
+    "Document",
+    back_populates="conversations"
+    )

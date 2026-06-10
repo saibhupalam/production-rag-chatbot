@@ -30,3 +30,8 @@ class User(Base):
         "Conversation",
         back_populates="user"
     )
+    
+    documents = relationship(
+    "Document",
+    back_populates="user"
+    )

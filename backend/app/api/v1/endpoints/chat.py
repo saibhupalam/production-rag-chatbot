@@ -1,4 +1,9 @@
 from fastapi import APIRouter
+from fastapi import Depends
+
+from sqlalchemy.orm import Session
+
+from app.db.dependencies import get_db
 
 from app.schemas.chat import (
     ChatRequest,
@@ -17,12 +22,14 @@ router = APIRouter()
     response_model=ChatResponse
 )
 def chat(
-    request: ChatRequest
+    request: ChatRequest,
+    db: Session = Depends(get_db)
 ):
 
     answer = answer_question(
+        db=db,
         question=request.question,
-        document_id=request.document_id
+        conversation_id=request.conversation_id
     )
 
     return ChatResponse(
