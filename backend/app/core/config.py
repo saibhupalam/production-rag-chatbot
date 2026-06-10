@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     POSTGRES_HOST: str
     POSTGRES_PORT: int
     POSTGRES_DB: str
+    GROQ_API_KEY: str
 
     class Config:
         env_file = ".env"

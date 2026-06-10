@@ -10,6 +10,14 @@ from app.utils.chunker import chunk_text
 from app.db.dependencies import get_db
 from app.services.document_service import create_document
 
+from app.services.embedding_service import (
+    generate_embeddings
+)
+
+from app.services.qdrant_service import (
+    store_chunks
+)
+
 router = APIRouter()
 
 
@@ -28,20 +36,27 @@ async def upload_document(
     
     chunks=chunk_text(text)
     
+    embeddings=generate_embeddings(
+        chunks
+    )
+    
     document = create_document(
         db=db,
         filename=file.filename
     )
     
+    store_chunks(
+        document_id=document.id,
+        chunks=chunks,
+        embeddings=embeddings
+    )
+    
     
 
     return {
-        "id": document.id,
+        "document_id": document.id,
         "filename": document.filename,
-        "status": document.upload_status,
-        "characters": len(text) ,
-        "preview" : text[:300],
-         "chunks": len(chunks),
-         "first_chunk": chunks[0]
+        "status": "processed",
+        "chunks": len(chunks)
                 
     }
