@@ -2,7 +2,10 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import PointStruct
 from qdrant_client.models import (
     VectorParams,
-    Distance
+    Distance,
+    Filter,
+    FieldCondition,
+    MatchValue
 )
 
 client = QdrantClient(
@@ -76,6 +79,7 @@ def store_chunks(
     
 def search_chunks(
     query_embedding,
+    document_id:int,
     limit: int = 3
 ):
 
@@ -83,8 +87,20 @@ def search_chunks(
         collection_name=COLLECTION_NAME,
 
         query=query_embedding.tolist(),
+        
+        query_filter=Filter(
+            must=[
+                FieldCondition(
+                    key="document_id",
+                    match=MatchValue(
+                        value=document_id
+                    )
+                )
+            ]
+        ),
 
         limit=limit
+       
     )
 
     return results

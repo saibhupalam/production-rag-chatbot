@@ -12,7 +12,8 @@ from app.services.llm_service import (
 
 
 def answer_question(
-    question: str
+    question: str,
+    document_id: int
 ):
 
     query_embedding = generate_embeddings(
@@ -20,7 +21,8 @@ def answer_question(
     )[0]
 
     results = search_chunks(
-        query_embedding
+        query_embedding=query_embedding,
+        document_id=document_id
     )
 
     print("\nRetrieved Chunks:\n")

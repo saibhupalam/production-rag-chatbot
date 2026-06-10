@@ -3,7 +3,8 @@ from app.services.rag_service import (
 )
 
 response = answer_question(
-    "What is self attention?"
+    question="What is self attention?",
+    document_id=1
 )
 
 print(response)

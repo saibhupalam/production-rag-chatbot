@@ -21,7 +21,8 @@ def chat(
 ):
 
     answer = answer_question(
-        request.question
+        question=request.question,
+        document_id=request.document_id
     )
 
     return ChatResponse(
