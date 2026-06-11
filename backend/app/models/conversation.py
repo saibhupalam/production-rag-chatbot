@@ -33,7 +33,8 @@ class Conversation(Base):
 
     messages = relationship(
     "Message",
-    back_populates="conversation"
+    back_populates="conversation",
+    cascade="all,delete-orphan"
     )
     
     document_id = Column(

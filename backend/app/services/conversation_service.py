@@ -37,3 +37,23 @@ def get_conversation(
         )
         .first()
     )
+
+def get_all_conversations(
+    db: Session
+):
+    return(
+        db.query(Conversation).all()
+    )
+    
+def delete_conversation(
+    db: Session,
+    conversation_id: int
+):
+    conversation=(
+        db.query(Conversation).filter(Conversation.id == conversation_id).first()
+    )
+    if conversation:
+        db.delete(conversation)
+        db.commit()
+    
+    return conversation
