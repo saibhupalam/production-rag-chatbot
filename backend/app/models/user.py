@@ -1,12 +1,9 @@
-from sqlalchemy import Column
-from sqlalchemy import Integer
-from sqlalchemy import String
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from app.db.base import Base
 
 
 class User(Base):
-
     __tablename__ = "users"
 
     id = Column(
@@ -17,21 +14,31 @@ class User(Base):
 
     username = Column(
         String,
-        nullable=False
+        nullable=False,
+        unique=True,
+        index=True
     )
 
     email = Column(
         String,
         unique=True,
-        nullable=False
+        nullable=False,
+        index=True
     )
-    
-    conversations=relationship(
+
+    hashed_password = Column(
+        String,
+        nullable=True
+    )
+
+    conversations = relationship(
         "Conversation",
-        back_populates="user"
+        back_populates="user",
+        cascade="all,delete-orphan"
     )
-    
+
     documents = relationship(
-    "Document",
-    back_populates="user"
+        "Document",
+        back_populates="user",
+        cascade="all,delete-orphan"
     )

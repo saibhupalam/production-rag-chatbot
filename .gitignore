@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Environment and secrets
+.env
+*.env
+backend/.env
+local host.session.sql
+
 # C extensions
 *.so
 

@@ -1,8 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
+
 
 class MessageResponse(BaseModel):
-    id : int
+    id: int
     role: str
     content: str
-    class config:
-        from_attributes = True
+
+    model_config = ConfigDict(from_attributes=True)
