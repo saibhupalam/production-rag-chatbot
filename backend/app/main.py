@@ -57,6 +57,6 @@ async def global_exception_handler(request: Request, exc: Exception):
 @app.get("/")
 async def root():
     return {
-        "message": "Production RAG Chatbot API Running",
+        "message": "ContextIQ API Running",
         "docs": f"{settings.API_V1_STR}/docs"
     }

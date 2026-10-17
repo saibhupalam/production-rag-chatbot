@@ -15,7 +15,7 @@ chosen_env_file = next((str(p) for p in ENV_PATHS if p.exists()), ".env")
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "Production RAG Chatbot"
+    PROJECT_NAME: str = "ContextIQ"
     API_V1_STR: str = "/api/v1"
     DEBUG: bool = False
 

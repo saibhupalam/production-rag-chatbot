@@ -1,12 +1,12 @@
-# Production RAG Chatbot
+# ContextIQ — Enterprise Context-Aware RAG Platform
 
-An enterprise-ready conversational Retrieval-Augmented Generation (RAG) system with a FastAPI backend, Streamlit frontend, PostgreSQL relational persistence, Qdrant vector database, and Groq LLM integration.
+**ContextIQ** is an enterprise-ready conversational Retrieval-Augmented Generation (RAG) platform with a FastAPI backend, Streamlit frontend, PostgreSQL relational persistence, Qdrant vector database, and Groq LLM integration.
 
 ---
 
 ## 1. Project Overview & Architecture
 
-The **Production RAG Chatbot** enables users to upload technical documents (`.pdf`, `.txt`), automatically extract and semantically chunk the text, generate normalized embeddings with `nomic-ai/nomic-embed-text-v1.5`, index vectors into Qdrant, and converse interactively with grounded LLM answers powered by Groq (`llama-3.3-70b-versatile`).
+**ContextIQ** enables users to upload technical documents (`.pdf`, `.txt`), automatically extract and semantically chunk the text, generate normalized embeddings with `nomic-ai/nomic-embed-text-v1.5`, index vectors into Qdrant, and converse interactively with grounded LLM answers powered by Groq (`llama-3.3-70b-versatile`).
 
 ### End-to-End System Architecture
 

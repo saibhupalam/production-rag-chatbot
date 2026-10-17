@@ -16,8 +16,8 @@ from services.api import (
 
 # Page configuration
 st.set_page_config(
-    page_title="Production RAG Chatbot",
-    page_icon="🤖",
+    page_title="ContextIQ — Knowledge & RAG Platform",
+    page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -179,7 +179,7 @@ def render_auth_section():
 
 def render_sidebar():
     """Render sidebar with conversations list and document upload."""
-    st.sidebar.title("📚 RAG Chatbot")
+    st.sidebar.title("🧠 ContextIQ")
     
     # System Health Badge
     health = check_backend_health()
@@ -343,9 +343,9 @@ def render_main_chat():
                         st.session_state.messages.append({"role": "assistant", "content": error_msg})
     else:
         # Welcome & Getting Started View
-        st.title("📚 Production RAG Chatbot")
+        st.title("🧠 ContextIQ")
         st.markdown("""
-        Welcome to your conversational **Retrieval-Augmented Generation (RAG)** assistant.
+        Welcome to **ContextIQ** — your context-aware **Retrieval-Augmented Generation (RAG)** knowledge platform.
         
         ### 🚀 How to get started:
         1. **Upload a document** in the sidebar (supports `.pdf` and `.txt`).

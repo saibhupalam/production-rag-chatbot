@@ -47,7 +47,7 @@ services:
     container_name: rag_backend
     restart: unless-stopped
     environment:
-      PROJECT_NAME: "${PROJECT_NAME:-Production RAG Chatbot}"
+      PROJECT_NAME: "${PROJECT_NAME:-ContextIQ}"
       API_V1_STR: "${API_V1_STR:-/api/v1}"
       DEBUG: "${DEBUG:-false}"
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
